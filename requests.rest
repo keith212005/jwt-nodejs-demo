@@ -1,0 +1,36 @@
+
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "username":"Ketan"
+}
+
+###
+
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS2V0YW4iLCJpYXQiOjE2NDQxNDM2NDIsImV4cCI6MTY0NDE0MzY1N30.FUErsug9ezOkJ2CXogoHmB1zy93DJz_qtpzchA23KqU
+
+###
+
+# paste refreshToken below
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS2V0YW4iLCJpYXQiOjE2NDQxNDMwNjV9.ixtXF8rtqIDT7gBE1Sx2jPRRNtZ2b923Zy2PPwBIG44"
+}
+
+###
+
+# send refreshToken in body to get new accessToken everytime. Until this fresh token is expired or deleted from DB this will help in creating new accessToken from server
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS2V0YW4iLCJpYXQiOjE2NDQxNDMwNjV9.ixtXF8rtqIDT7gBE1Sx2jPRRNtZ2b923Zy2PPwBIG44"
+}
+
+###
+
+
